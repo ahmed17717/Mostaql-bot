@@ -4,6 +4,12 @@ import requests
 from curl_cffi import requests as cffi
 from bs4 import BeautifulSoup
 
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")  # Arabic on Windows consoles
+    except Exception:
+        pass
+
 BASE = "https://mostaql.com"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
