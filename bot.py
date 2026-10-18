@@ -1,6 +1,7 @@
 import json, os, re, html, sys, time
 from datetime import datetime, timedelta
 import requests
+from curl_cffi import requests as cffi
 from bs4 import BeautifulSoup
 
 BASE = "https://mostaql.com"
@@ -24,7 +25,9 @@ def norm(s):
 
 
 def get(url):
-    r = requests.get(url, headers=HEADERS, timeout=30)
+    # impersonate Chrome's TLS fingerprint; plain `requests` gets 403 from Mostaql
+    r = cffi.get(url, headers={"Accept-Language": "ar,en;q=0.8"},
+                 impersonate="chrome", timeout=30)
     r.raise_for_status()
     return BeautifulSoup(r.text, "html.parser")
 
