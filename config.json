@@ -1,0 +1,13 @@
+{
+  "list_url": "https://mostaql.com/projects?sort=latest",
+  "categories": ["برمجة، تطوير المواقع والتطبيقات", "ذكاء اصطناعي وتعلم الآلة"],
+  "skill_patterns": [
+    "power\\s?point",
+    "بوربوينت|باوربوينت|باور بوينت",
+    "عرض(?:ا|اً)? تقديمي|عروض تقديمية|تصميم العروض",
+    "presentation",
+    "microsoft word|مايكروسوفت وورد|ميكروسوفت وورد|\\bword\\b"
+  ],
+  "new_client_max_age_days": 90,
+  "max_details_per_run": 30
+}
